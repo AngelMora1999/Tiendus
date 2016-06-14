@@ -1,0 +1,23 @@
+%header
+	%nav.green
+		%ul.no-list.no-padding.text-center
+			%li.col-md-4.inline-block.white-text
+				-if user_signed_in?
+					=link_to root_path, class:"space-right white-text" do
+						%i.mdi-action-shopping-basket
+						Mi tienda
+					=link_to "", class:"space-right white-text" do
+						%i.mdi-action-trending-up
+						Ordenes
+					=link_to "", class:"space-right white-text" do
+						%i.mdi-action-alarm
+						Descuentos
+			%li.col-md-4.inline-block.text-center
+				=image_tag "tiendus.png",height:"25px"
+			%li.col-md-4.inline-block.tall-padding
+				=link_to carrito_path,class:"white-text" do
+					%i.mdi-action-shopping-cart
+					Mi Carrito
+					(
+					= @shopping_cart.products.count
+					gi)

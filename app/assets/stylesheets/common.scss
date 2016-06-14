@@ -1,0 +1,159 @@
+@import "bootstrap";
+
+$green: #16a085;
+$grey: #5a6576;
+$other-grey: #e7ecee;
+$blue: #058cc5;
+$red: #d2527f;
+$light-blue: #3498db;
+$teal: #009688;
+
+/* Texto */
+.bold{
+	font-weight: bold;
+}
+
+/* Colores */
+
+.white{
+	background-color: white;
+}
+
+.white-text{
+	color: white;
+}
+
+.teal{
+	background-color: $teal;
+}
+
+.teal-text{
+	color: $teal;
+}
+
+.green{
+	background-color: $green;
+}
+
+.green-text{
+	color: $green;
+}
+
+.grey{
+	background-color: $grey;
+}
+
+.grey-text{
+	color: $grey;
+}
+
+.other-grey{
+	background-color: $other-grey;
+}
+
+.other-grey-text{
+	color: $other-grey;
+}
+
+.blue{
+	background-color: $blue;
+}
+
+.blue-text{
+	color: $blue;
+}
+
+.red{
+	background-color: $red;
+}
+
+.red-text{
+	color: $red;
+}
+
+.light-blue{
+	background-color: $light-blue;
+}
+
+.light-blue-text{
+	color: $light-blue;
+}
+
+/* Paddings */
+
+.large-padding{
+	padding: 5px 10px;
+}
+
+.big-padding{
+	padding: 2em;
+}
+
+.no-padding{
+	padding: 0;
+}
+
+/* Margins */
+
+.no-margin{
+	margin: 0;
+}
+
+.top-space{
+	margin-top: 1em;
+}
+
+.bottom-space{
+	margin-bottom: 2em;
+}
+
+/* Alineamientos */
+
+.no-float{
+	float: none !important;
+}
+
+.in-top{
+	vertical-align: top !important;
+}
+
+.inline-block{
+	float: none !important;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: -4px;
+}
+
+.absolute{
+	position: absolute;
+}
+
+.relative{
+	position: relative;
+}
+
+/* Tamaños */
+
+.small{
+	font-size: 12px;
+}
+
+.medium{
+	font-size: 1.5em;
+}
+
+.normal{
+	font-size: 1.2em;
+}
+
+.big{
+	font-size: 3em;
+}
+
+.bigger{
+	font-size: 4em;
+}
+
+.ultra-big{
+	font-size: 7em;
+}

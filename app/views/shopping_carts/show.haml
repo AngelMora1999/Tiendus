@@ -1,0 +1,24 @@
+.card.large-padding
+	%table.table.table-striped.table-hover.medium#table_shopping_cart	
+		%thead
+			%td Producto
+			%td Costo
+			%td Contenido
+			%td Acciones
+		%tbody
+			-@shopping_cart.in_shopping_carts.each do |i_sh|
+				-product = i_sh.product
+				%tr{id:"#{product.id}"}
+					%td= product.name
+					%td
+						$
+						= product.pricing
+					%td
+						= product.attachments.count
+						archivos
+					%td Eliminar
+	.top-space.large-padding.text-center.green.white-text#payment-form
+		%p.medium
+			%strong
+				Total: $
+				20

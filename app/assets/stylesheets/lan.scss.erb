@@ -1,0 +1,54 @@
+@font-face{
+	font-family:"Kostic";
+	src: url(<%= asset_path("Kostic-Regular.ttf") %>) format('truetype');
+}
+
+@font-face{
+	font-family:"Kostic";
+	src: url(<%= asset_path("Kostic-Bold.ttf") %>) format('truetype');
+	font-weight:bold;
+}
+
+@font-face{
+	font-family:"Kostic";
+	src: url(<%= asset_path("Kostic-Thin.ttf") %>) format('truetype');
+	font-weight:lighter;
+}
+
+.Kostic{
+	font-family:"Kostic";
+}
+
+.circle{
+	border-radius: 50%;
+	display: inline-block;
+	padding-top: 10px;
+	height: 70px;
+	width: 80px;
+}
+
+.landing-form{
+    border: none;
+    outline: none;
+    border-bottom: solid 1px #E43D7A;
+    font-size: 1.5em;
+    color: #C8376C; 
+}
+
+::-webkit-input-placeholder{ /*WebKit browsers*/
+    color: #E43D7A;
+}
+
+:-moz-placeholder{ /*Mozilla Firefox 4 to 18*/
+    color: #E43D7A;	
+    opacity: 0.7;
+}
+
+::-moz-placeholder{ /*Mozilla Firefox 19+*/
+    color: #E43D7A;
+    opacity: 0.7;
+}
+
+:ms-input-placeholder{ /*Internet Explorer 10+*/
+    color: #E43D7A;
+}
