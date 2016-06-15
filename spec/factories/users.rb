@@ -19,7 +19,7 @@
 
 FactoryGirl.define do
   factory :user do
-    email "eduardo.aemc@gmail.com"
+    #squence(:email){ |n| "eduardo#{n}.aemc@gmail.com"}
     password "AngelMora123"
     password_confirmation "AngelMora123"
   end

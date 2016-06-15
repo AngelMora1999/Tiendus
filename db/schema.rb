@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612174409) do
+ActiveRecord::Schema.define(version: 20160615204456) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "product_id"
@@ -47,12 +47,15 @@ ActiveRecord::Schema.define(version: 20160612174409) do
     t.string   "email"
     t.string   "ip"
     t.string   "status"
-    t.decimal  "fee",        precision: 6, scale: 2
+    t.decimal  "fee",              precision: 6, scale: 2
     t.string   "paypal_id"
-    t.decimal  "total",      precision: 8, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "total",            precision: 8, scale: 2
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "shopping_cart_id"
   end
+
+  add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

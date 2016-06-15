@@ -1,6 +1,7 @@
 = form_for @product, builder: BootstrapFormBuilder do |f|
   = f.errors
   = f.text_field :name
+  %small Precio en centavos
   = f.text_field :pricing
   = f.file_field :avatar
   = f.text_area :description

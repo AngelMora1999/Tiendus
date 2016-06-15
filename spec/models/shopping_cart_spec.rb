@@ -18,7 +18,7 @@ RSpec.describe ShoppingCart, type: :model do
 			shopping_cart.payed!
 			puts shopping_cart.status
 			expect(shopping_cart.payed?).to be_truthy
-#expect(shopping_cart.status).to eq("payed")
+			expect(shopping_cart.status).to eq("payed")
 		end
 	end
 end

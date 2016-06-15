@@ -14,11 +14,11 @@
 					%span.grey-text= "$ #{@product.pricing}"
 				%h3.green-text.bold.normal
 					Archivos:
-					%span.grey-text= 20
+					%span.grey-text= @product.attachments.count
 				%h3.green-text.bold.normal
 					Tamaño:
 					%span.grey-text= "2 GB"
 				=render "in_shopping_carts/form", product: @product
 		%section
 			%h3.green-text.bold.normal Descripción
-			%p= @product.description
+			%p.text-justify= @product.description
