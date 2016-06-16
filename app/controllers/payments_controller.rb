@@ -2,13 +2,14 @@ class PaymentsController < ApplicationController
   	
   include PayPal::SDK::REST
 
-  def cheackout
+  def checkout
   	@my_payment = MyPayment.find_by(paypal_id: params[:paymentId])
   	if @my_payment.nil?
   		redirect_to "/carrito"
   	else
   		payment = Payment.find(@my_payment.paypal_id)
   		if payment.execute(payer_id: params[:PayerID])
+        @my_payment.pay!
   			redirect_to carrito_path, notice: "Se proceso el pago con PayPal"
   		else
   			redirect_to carrito_path, notice: "Hubo un error al procesar el pago"
@@ -36,14 +37,14 @@ class PaymentsController < ApplicationController
   			}
   		],
   		redirect_urls: {
-  			return_url:"http://localhost:3000",
+  			return_url:"http://localhost:3000/checkout",
   			cancel_url:"http://localhost:3000/carrito"
   		}
   		})
 
   		if payment.create
   			@my_payment = MyPayment.create!(paypal_id: payment.id,
-  										ip: resquest.remote_ip,
+  										ip: request.remote_ip,
   										shopping_cart_id: cookies[:shopping_cart_id])
   			redirect_to payment.links.find{|v| v.method == "REDIRECT" }.href
   		else
