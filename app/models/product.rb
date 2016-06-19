@@ -32,4 +32,9 @@ class Product < ActiveRecord::Base
 #validates_presence_of :name
 #validates_presence_of :user
 #validates_presence_of :pricing
+	
+  def paypal_form
+  	{name: name,sku: :item, price: (pricing / 100),currency:"USD",quantity:1 }
+  end
+
 end
