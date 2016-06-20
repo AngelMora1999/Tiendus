@@ -2,16 +2,17 @@ class Stores::Paypal
 
 	include PayPal::SDK::REST
 
-	attr_accessor :payment, :shopping_cart, :return_url, :cancel_url
+	#attr_accessor :payment, :shopping_cart,:return_url,:cancel_url
+	attr_accessor :payment, :total,:return_url,:cancel_url,:items
 
-	def initialize(options)
-		self.shopping_cart = options[:shopping_cart]
-		self.return_url = options[:return_url]
-		self.cancel_url = options[:cancel_url]
+
+	def initialize(total,items,options={})
+		self.total = total
+		self.items = items
+		options.each { |clave,valor| instance_variable_set("@#{clave}",valor) }
 	end
 
 	def process_payment
-
 		self.payment = Payment.new({
   		intent: "sale",
   		payer:{
@@ -20,18 +21,18 @@ class Stores::Paypal
   		transactions: [
   			{
   				item_list: {
-  					items: self.shopping_cart.items
+  					items: self.items
   				},
   				amount:{
-  					total: (self.shopping_cart.total / 100),
+  					total: (self.total / 100),
   					currency: "USD"
   				},
   				description: "Compra de tus productos en nuestra plataforma"
   			}
   		],
   		redirect_urls: {
-  			return_url: self.return_url,
-  			cancel_url: self.cancel_url
+  			return_url: @return_url,
+  			cancel_url: @cancel_url
   		}
   		})
 		self.payment
