@@ -44,6 +44,9 @@ gem "paypal-sdk-rest"
 #Aasm para crear maquinas de estados
 gem "aasm"
 
+#Credit Card Validator para validar targetas de creditos
+gem "credit_card_validator"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -13,7 +13,28 @@ class Stores::Paypal
 	end
 
 	def process_payment
-		self.payment = Payment.new({
+		self.payment = Payment.new(options)
+		self.payment
+	end
+
+	def process_card(card_data)
+		options = payment_options
+		options[:payer][:payment_method] = "credit_cart"
+		options[:payer][:funding_instruments] = [{
+				credit_cart: {
+					type: CreditCardValidator::Validator.card_type(card_data[:number]),
+					number: card_data[:number],
+					expire_month: card_data[:expire_month],
+					expire_year: card_data[:expire_year],
+					cvv2: card_data[:cvv2],
+					first_name: card_data[:first_name],
+					last_name: card_data[:last_name]
+				}
+			}]
+	end
+
+	def payment_options
+		{
   		intent: "sale",
   		payer:{
   			payment_method: "paypal"
@@ -34,8 +55,7 @@ class Stores::Paypal
   			return_url: @return_url,
   			cancel_url: @cancel_url
   		}
-  		})
-		self.payment
+  		}
 	end
 
 	def self.checkout(payer_id,payment_id,&block)
