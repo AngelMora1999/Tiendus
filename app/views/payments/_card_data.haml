@@ -1,0 +1,24 @@
+.modal.inline-block
+	.modal-dialog
+		.modal-content
+			.modal-header
+				%button.close.close-modal X
+				%h3.green-text.modal-title Paga con tu tarjeta
+			=form_tag "payments/cards", method: :post do
+				.modal-body
+					.form-group.top-space
+						=email_field_tag :email, nil, class: "form-control floating-label", placeholder: "Correo electronico", required: "required"
+					.form-group.top-space
+						=text_field_tag :number, nil, class: "form-control floating-label top-space", placeholder: "Número de Tarjeta", required: "required"
+					.form-group.top-space
+						%p.be-small Fecha de expiración
+						.col-xs-6.col-sm-4.col-md-3.no-padding.inline-block
+							=select_tag :expire_month, options_for_select((1..12).to_a), class: "form-control"
+						.col-xs-6.col-sm-4.col-md-3.no-padding.inline-block
+							=select_tag :expire_year, options_for_select((2016..2023).to_a), class: "form-control"
+					.form-group.top-space
+						=number_field_tag :cvv2, nil, class: "form-control floating-label top-space", placeholder: "CVV (reverso de la tarjeta)", required: "required"
+					%p.green-text.top-space * Los datos de tu tarjeta no son almacenados.
+			.modal-footer
+				=content_tag :button, type: :submit, class: "btn btn-primary" do
+					Pagar
