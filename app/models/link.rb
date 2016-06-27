@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id              :integer          not null, primary key
+#  product_id      :integer
+#  expiration_date :datetime
+#  downloads       :integer
+#  downloads_limit :integer
+#  custom_id       :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  email           :string
+#
+
+require "digest/md5"
+class Link < ActiveRecord::Base
+  before_create :set_defaults
+  belongs_to :product
+
+  private
+  def set_defaults
+  	self.custom_id = Digest::MD5.hexdigest("#{DateTime.now}#{self.id}#{self.product_id}")
+  	self.downloads ||= 0
+  end
+end

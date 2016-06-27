@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "/add/:product_id",as: :add_to_cart,to: "in_shopping_carts#create"
   get "/checkout", to: "payments#checkout"
 
+  get "/ok",  to: "welcome#payment_success"
+
   authenticated :user do
     root 'welcome#index'
   end

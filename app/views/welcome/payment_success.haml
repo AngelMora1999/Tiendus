@@ -1,0 +1,18 @@
+.col-md-10.center-block.no-float
+	%article.card.large-padding
+		%h1 Tu pago ha sido procesado
+		%p Hemos enviado a tu correo los links de descargas del producto que acabas de adquirir
+		%section.top-space
+			%h2 Resumen de tu pedido
+			%table.table.table-striped.table-hover.medium#table_shopping_cart	
+				%thead
+					%td Producto
+					%td Costo
+				%tbody
+					-@shopping_cart.in_shopping_carts.each do |i_sh|
+						-product = i_sh.product
+						%tr{id:"#{product.id}"}
+							%td= product.name
+							%td
+								$
+								= product.pricing

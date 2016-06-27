@@ -14,6 +14,7 @@ class ShoppingCart < ActiveRecord::Base
 	
 	has_many :products, through: :in_shopping_carts
 	has_many :in_shopping_carts
+	has_many :my_payments
 
 	#Vamos a utilizar un metodo de ruby bien interesante
 	#En el cual vamos a asignar el stado por nombre y no por numeros
@@ -30,11 +31,25 @@ class ShoppingCart < ActiveRecord::Base
 		event :pay do
 			after do
 			#TODO mandar los archivos que el usuario compro
+			self.generate_links()
 			end
 			transitions from: :created, to: :payed
 		end
 	end
 
+	def payment
+		begin
+			my_payments.payed.first
+		rescue Exception => e
+			return nil
+		end
+	end
+
+	def generate_links
+		self.products.each do |product|
+			Link.create(expiration_date: DateTime.now + 7.days, product: product, email: payment.email)
+		end
+	end
 
 	def items
 		self.products.map{|product| product.paypal_form}

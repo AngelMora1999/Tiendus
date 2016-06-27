@@ -1,15 +1,14 @@
 class PaymentsController < ApplicationController
 
-  include PayPal::SDK::REST
-
   def checkout
     @my_payment = MyPayment.find_by(paypal_id: params[:paymentId])
     if @my_payment.nil?
       redirect_to "/carrito"
     else
       Stores::Paypal.checkout(params[:PayerID],params[:paymentId]) do
+        @my_payment.update(email: Stores::Paypal.get_email(params[:paymentId]))
         @my_payment.pay!
-        redirect_to carrito_path, notice: "Se proceso el pago con PayPal"
+        redirect_to ok_path, notice: "Se proceso el pago con PayPal"
         return
       end
     end
@@ -28,7 +27,7 @@ class PaymentsController < ApplicationController
                                       email: params[:email],
                                       shopping_cart_id: cookies[:shopping_cart_id])
       @my_payment.pay!
-      redirect_to carrito_path, notice: "El pago se realizo correctamente"
+      redirect_to ok_path, notice: "El pago se realizo correctamente"
     else
       redirect_to carrito_path, notice: paypal_helper.payment.error
     end
