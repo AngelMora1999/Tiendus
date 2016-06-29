@@ -67,7 +67,8 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
-
+  #Gema para abrir los email en el navegador
+  gem "letter_opener"
 end
 
 group :development do
