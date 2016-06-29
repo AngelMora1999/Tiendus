@@ -1,0 +1,60 @@
+<style>
+  @import url(http://fonts.googleapis.com/css?family=Lato);
+</style>
+<div style="background-color:#5A6576;height:100%;">
+	<div style="font-family:Lato,Arial,Helvetica;width:50%;margin:0 auto !important;background-color:white;padding:20px;
+  border-radius: 2px;
+  color: rgba(0,0,0,.84);
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+">
+		<header>
+			<div style="display:inline-block;width:50%;margin-right:-4px;vertical-align:middle;">
+				<img src="http://codigofacilito.com/assets/logo-cf-small-8d88fa671cd7086fabf538a90671265519f91eaaccc611308c3e5000ed4fc2ab.png" height="60">
+			</div>
+			<div style="display:inline-block;width:50%;text-align:right;margin-right:-4px;vertical-align:middle;">
+				<h1 style="color:#d2527f">Tu compra fue un éxito</h1>
+				<span style="color:#5A6576;">downloads@tiendus.com</span>
+				
+			</div>
+		</header>
+	  <table style="width:100%;margin-top:2em;background-color:">
+	  	<thead style="border-bottom:solid 1px;">
+	  		<tr>
+		  		<td style="padding:15px;">Producto</td>
+		  		<td>Precio</td>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<tr>
+	  			<td style="padding:15px;"><%= @product.name %></td>
+	  			<td><%= @product.pricing %>USD</td>
+	  		</tr>
+	  	</tbody>
+	  </table>
+	  <div style="text-align:center;margin:40px 0;">
+	  	<a href="http://tiendus.com/descargar/<%= @link.custom_id %>" style="box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);position: relative;
+		  padding: 8px 30px;
+		  border: 0;
+		  margin: 10px 1px;
+		  cursor: pointer;
+		  border-radius: 2px;
+		  text-transform: uppercase;
+		  text-decoration: none;
+		  color: rgba(255,255,255,.84);
+		  -webkit-transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+		  transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+		  outline: 0!important;
+		    background-color: #d2527f;
+		    font-size:17px;">
+	  		Descargar producto
+	  	</a>	
+	  </div>
+	  <p style="color:#5A6576;font-size:12px;text-align:center;margin-top:50px;">
+	  	Gracias por usar Tiendus. Recuerda que por default todos los links caducan en 7 días y sólo pueden ser usados 5 veces.
+	  </p>
+	  <p style="color:#5A6576;font-size:12px;text-align:center;">
+	  	Si tienes alguna duda con el producto que adquiriste, puedes contactar al vendedor escribiendo a <a style="color:#d2527f;" href="mailto:<%= @product.user.email %>"><%= @product.user.email %></a>
+	  </p>
+	 </div>		
+</div>
