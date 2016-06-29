@@ -1,0 +1,10 @@
+.col-md-10.center-block.no-float
+	%article.card.large-padding.text-center
+		%h1 Links de descargas
+		%p
+			Este link expirará en
+			=distance_of_time_in_words(DateTime.now, @link.expiration_date)
+		%p
+			Podras acceder a él
+			= 5 -@link.downloads
+			veces más

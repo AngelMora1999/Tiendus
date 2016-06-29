@@ -19,6 +19,14 @@ class Link < ActiveRecord::Base
   after_create :send_email
   belongs_to :product
 
+  def is_invalid?
+  	(DateTime.now > self.expiration_date || self.downloads >= 5)
+  end
+
+  def update_downloads
+  	self.update(downloads: self.downloads + 1)
+  end
+
   private
   def set_defaults
   	self.custom_id = Digest::MD5.hexdigest("#{DateTime.now}#{self.id}#{self.product_id}")
