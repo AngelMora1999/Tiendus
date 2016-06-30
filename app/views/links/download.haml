@@ -9,6 +9,6 @@
 			= 5 -@link.downloads
 			veces más
 		%div
-			-@link.link_attachments.each do |link_attachment|
+			-@link_attachments.each do |link_attachment|
 				%p.medium
 					=link_to link_attachment.attachment.archivo_file_name, download_attchment_path(id: @link.custom_id,attachment_id: link_attachment.id)

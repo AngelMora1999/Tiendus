@@ -34,6 +34,10 @@ class Link < ActiveRecord::Base
   	end
   end
 
+  def links
+  	link_attachments.limit(product.attachments.count)
+  end
+
   private
   def set_defaults
   	self.custom_id = Digest::MD5.hexdigest("#{DateTime.now}#{self.id}#{self.product_id}")

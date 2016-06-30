@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI</title>
+	<link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+	<script src="dist/semantic.min.js"></script>
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<div class="ui message">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    Welcome back!
+	  </div>
+	  <p>This is a special notification which you can dismiss if you're bored with it.</p>
+	</div>
+	<script type="text/javascript">
+		$('.message .close')
+		  .on('click', function() {
+		    $(this)
+		      .closest('.message')
+		      .transition('fade')
+		    ;
+		  })
+		;
+	</script>
+</body>
+</html>

@@ -8,6 +8,7 @@ class LinksController < ApplicationController
 		@link.update_downloads
 		@product = @link.product
 		@link.create_attachment_links
+		@link_attachments = @link.links
 	end
 	
 	def download_attachment
