@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   get "/add/:product_id",as: :add_to_cart,to: "in_shopping_carts#create"
   get "/checkout", to: "payments#checkout"
   get "/descargar/:id", to: "links#download"
-  get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment"
-  get "/invalid"
+  get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment", as: :download_attchment
+  get "/invalid", to: "welcome#unregistered"
 
   get "/ok",  to: "welcome#payment_success"
 

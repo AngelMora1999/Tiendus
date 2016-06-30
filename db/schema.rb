@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627225647) do
+ActiveRecord::Schema.define(version: 20160629221837) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "product_id"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20160627225647) do
 
   add_index "in_shopping_carts", ["product_id"], name: "index_in_shopping_carts_on_product_id"
   add_index "in_shopping_carts", ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id"
+
+  create_table "link_attachments", force: :cascade do |t|
+    t.integer  "link_id"
+    t.datetime "expiration_date"
+    t.integer  "attachment_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "link_attachments", ["attachment_id"], name: "index_link_attachments_on_attachment_id"
+  add_index "link_attachments", ["link_id"], name: "index_link_attachments_on_link_id"
 
   create_table "links", force: :cascade do |t|
     t.integer  "product_id"

@@ -29,4 +29,19 @@ RSpec.describe Link, type: :model do
   		FactoryGirl.create(:link)
   	}.to change(ActionMailer::Base.deliveries,:count).by(1)
   end
+
+  describe "#create_attachment_links" do
+    before :each do
+      @product = FactoryGirl.create(:product)
+      2.times do
+        attachment = FactoryGirl.create(:attachment, product: @product)
+      end
+      @link = FactoryGirl.create(:link,product: @product)
+    end
+    it "should generate a link per product attachment" do
+      expect{
+        @link.create_attachment_links
+      }.to change(LinkAttachment,:count).by(2)
+    end
+  end
 end
