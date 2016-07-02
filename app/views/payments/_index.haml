@@ -1,0 +1,21 @@
+%table.table.table-striped.table-hover
+	%thead
+		%tr
+			%th #
+			%th Producto
+			%th Valor
+			%th Estado
+			%th Fecha
+	%tbody
+		-@orders.each do |order|
+			-order.products_by_user(current_user).each do |product|
+				%tr
+					%td= order.id
+					%td= product.name
+					%td= product.pricing
+					%td
+						-if order.payed?
+							="Pagado"
+						-else
+							="No Completado"
+					%td= order.created_at

@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tiendus</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="blue white-text large-padding bold text-center">
-    
-    	<p class="no-padding no-margin inline-block"><%= notice %><%= alert %></p>
-		<span class="pull-right close-parent">X</span>
-	</div>
-<%= render"partials/nav"%>
-<div class="col-md-11 no-float center-block">
-	<%= yield %>
-</div>
-
-
-</body>
+	<head>
+		<title>Tiendus</title>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div style="<%= "display:none;" if alert.nil? && notice.nil? %>" class="blue white-text large-padding bold text-center">
+			<p class="no-padding no-margin inline-block"><%= notice %><%= alert %></p>
+			<span class="pull-right close-parent">X</span>
+		</div>
+		<%= render"partials/nav"%>
+		<div class="col-md-11 no-float center-block">
+			<%= yield %>
+		</div>
+	</body>
 </html>
