@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get "/ok",  to: "welcome#payment_success"
 
+  get "/ordenes", to: "ordenes#index"
+
   authenticated :user do
     root 'welcome#index'
   end

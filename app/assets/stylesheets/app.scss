@@ -10,6 +10,10 @@ img {
 	margin-right: 1em;
 }
 
+.close-parent{
+	cursor: pointer;
+}
+
 .payment-btn{
 	border-radius: 3px;
 	border: none;
@@ -24,4 +28,8 @@ img {
 
 .card-btn{
 	background-color: #1D785B;
+}
+
+a:hover {
+	color: inherit !important;
 }
