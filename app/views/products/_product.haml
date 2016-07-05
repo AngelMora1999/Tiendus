@@ -1,5 +1,7 @@
 %article
 	%h3.large-padding.red.white-text.no-margin.top-space= link_to product.name, product, class:"white-text"
 	.large-padding.text-left
-		.col-xs-9.inline-block.text-justify= product.description
-		.col-xs-3.inline-block 10 ventas
+		.col-xs-9.inline-block.text-left= product.description
+		.col-xs-3.inline-block.in-top
+			=product.sales.count
+			ventas

@@ -7,7 +7,9 @@
 		.col-md-9.inline-block
 			%h1= @product.name
 		.col-md-3.inline-block
-			%p.big.no-margin.red-text 10 usd
+			%p.big.no-margin.red-text
+				=@product.sales_total / 100
+				USD
 		%nav.top-space
 			=link_to "Ver como el cliente", product_path(id: @product.id, client:true),class:"other-grey large-padding text-center col-md-4 inline-block"
 			=link_to "Editar producto", edit_product_path(@product),class:"other-grey large-padding text-center col-md-4 inline-block"
