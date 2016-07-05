@@ -47,10 +47,6 @@ gem "aasm"
 #Credit Card Validator para validar targetas de creditos
 gem "credit_card_validator"
 
-#Configuracion para base de datos mysql
-group :production do
-  gem "mysql2","~> 0.3.9"
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -60,6 +56,11 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#Configuracion para base de datos mysql
+group :production do
+  gem 'mysql2','~> 0.3.9'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
