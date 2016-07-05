@@ -123,6 +123,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mysql2 (0.3.21)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -245,6 +246,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  mysql2 (~> 0.3.9)
   paperclip
   paypal-sdk-rest
   rails (= 4.2.6)

@@ -47,6 +47,11 @@ gem "aasm"
 #Credit Card Validator para validar targetas de creditos
 gem "credit_card_validator"
 
+#Configuracion para base de datos mysql
+group :production do
+  gem "mysql2","~> 0.3.9"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
