@@ -59,7 +59,7 @@ gem "credit_card_validator"
 
 #Configuracion para base de datos mysql
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.4.3'
 end
 
 group :development, :test do
