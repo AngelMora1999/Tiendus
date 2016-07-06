@@ -57,6 +57,8 @@ gem "credit_card_validator"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'therubyracer'
+
 group :production do
   gem 'mysql2','~> 0.3.9' 
 end
