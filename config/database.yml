@@ -23,7 +23,7 @@ test:
 production:
   adapter: mysql2
   username: root
-  password: AngelMora123
+  password: AgelMora123
   database: tiendus_db
   host: 127.0.0.1
   port: 3306
