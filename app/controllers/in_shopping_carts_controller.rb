@@ -12,8 +12,8 @@ class InShoppingCartsController < ApplicationController
 
 	def destroy
 		#Eliminar de un carrito de compra
-		@in_shopping_cart = InShoppingCart.find(:id)
+		@in_shopping_cart = InShoppingCart.find(params[:id])
 		@in_shopping_cart.destroy
-		rediret_to carrito_path
+		redirect_to carrito_path, notice: "Item eliminado"
 	end
 end
