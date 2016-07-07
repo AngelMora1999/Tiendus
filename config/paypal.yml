@@ -25,5 +25,6 @@ development:
   <<: *default
 
 production:
-  <<: *default
+  client_id: Ac_N-Q7erwHMYG0Hl6zKTsIluO00gQMtRJeJCh-lBlTMGYiP6p3D-LjEK7kBFuM8KrQRRrYHaBE4AiMI
+  client_secret: EPZrhX2q5eV9tXq7naUrT1c26S4Vb9RjXIkavhLqSHd5G8vMsdJGLJywHi1nIh2xxz11f58Qws0bXPNF
   mode: live
