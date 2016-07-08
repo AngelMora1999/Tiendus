@@ -6,12 +6,12 @@
 					=link_to root_path, class:"space-right white-text" do
 						%i.mdi-action-shopping-basket
 						Mi tienda
-					=link_to ordenes_path, class:"space-right white-text" do
+					=link_to root_path, class:"space-right white-text" do
 						%i.mdi-action-trending-up
 						Ordenes
-					=link_to "", class:"space-right white-text" do
+					=link_to products_path, class:"space-right white-text" do
 						%i.mdi-action-alarm
-						Descuentos
+						Productos
 					=link_to "Cerrar session", destroy_user_session_path, method: :delete, class: "right-space white-text"
 			%li.col-md-4.inline-block.text-center
 				=image_tag "tiendus.png",height:"25px"
